@@ -28,7 +28,6 @@ export default function HospitalInfo({
   currentAmbulance,
 }: HospitalInfoProps) {
 
-  console.log("HospitalInfo", hospital, proximityResult);
   if (!hospital) {
     return (
       <Card className="h-full flex items-center justify-center border-0 shadow-sm bg-white">

@@ -132,6 +132,7 @@ export default function MapView({
         available: 'bg-green-600',
         busy: 'bg-amber-500',
         en_route: 'bg-gray-400',
+        offline: 'bg-gray-400',
       };
 
       const el = document.createElement('div');

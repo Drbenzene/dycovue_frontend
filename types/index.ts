@@ -14,7 +14,7 @@ export interface Hospital {
   emergency: boolean;
 }
 
-export type AmbulanceStatus = 'available' | 'busy' | 'en_route';
+export type AmbulanceStatus = 'available' | 'busy' | 'en_route' | 'offline';
 
 export interface Ambulance {
   id: string;

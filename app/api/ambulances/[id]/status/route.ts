@@ -18,11 +18,11 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
         const body = await request.json();
         const { status } = body as { status: AmbulanceStatus };
 
-        if (!status || !['available', 'busy', 'offline'].includes(status)) {
+        if (!status || !['available', 'busy', 'en_route', 'offline'].includes(status)) {
             return NextResponse.json(
                 {
                     success: false,
-                    message: 'Invalid status. Must be one of: available, busy, offline',
+                    message: 'Invalid status. Must be one of: available, busy, en_route, offline',
                 },
                 { status: 400 }
             );

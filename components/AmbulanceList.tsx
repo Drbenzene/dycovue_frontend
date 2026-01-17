@@ -18,7 +18,6 @@ export default function AmbulanceList({
   const busyCount = ambulances.filter((a) => a.status === 'busy').length;
   const offlineCount = ambulances.filter((a) => a.status === 'en_route').length;
 
-  console.log(ambulances, "te ambulances")
 
   return (
     <Card className="h-full flex flex-col overflow-hidden border-0 shadow-sm">

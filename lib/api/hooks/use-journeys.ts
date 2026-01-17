@@ -72,8 +72,6 @@ export function useStartJourney(): UseMutationResult<
                 queryKeys.journeys.active(journey.ambulanceId),
                 journey
             );
-
-            // Invalidate ambulance queries (status will change to 'busy')
             queryClient.invalidateQueries({ queryKey: queryKeys.ambulances.all });
         },
     });
@@ -144,13 +142,10 @@ export function useCancelJourney(): UseMutationResult<
     const queryClient = useQueryClient();
 
     return useMutation({
-        mutationFn: ({ journeyId }: { journeyId: string }) => journeysApi.cancelJourney(journeyId),
+        mutationFn: ({ journeyId }: { journeyId: string; ambulanceId: string }) => journeysApi.cancelJourney(journeyId),
 
-        onSuccess: (_: void, { ambulanceId }: { journeyId: string; ambulanceId: string }) => {
-            // Remove active journey from cache
+        onSuccess: (_: void, { ambulanceId }) => {
             queryClient.setQueryData(queryKeys.journeys.active(ambulanceId), null);
-
-            // Invalidate ambulance queries
             queryClient.invalidateQueries({ queryKey: queryKeys.ambulances.all });
         },
     });

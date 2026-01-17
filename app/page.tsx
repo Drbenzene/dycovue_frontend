@@ -57,7 +57,6 @@ export default function Home() {
     batchMovement.mutate(updates);
   }, [ambulances, batchMovement]);
 
-  console.log(proximityResult, "THE PROXIMITY RESUT HEHEHE")
 
   const handleHospitalClick = useCallback((hospital: Hospital) => {
     setSelectedHospital(hospital);
@@ -70,7 +69,6 @@ export default function Home() {
     const steps = 100;
     const path: { lng: number; lat: number }[] = [];
 
-    console.log(ambulance, hospital, "THE TWO DATA")
 
     ambulance = {
       ...ambulance,
