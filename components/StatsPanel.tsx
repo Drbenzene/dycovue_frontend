@@ -7,12 +7,16 @@ interface StatsPanelProps {
   totalHospitals: number;
   totalAmbulances: number;
   availableAmbulances: number;
+  busyAmbulances: number;
+  enRouteAmbulances: number;
 }
 
 export default function StatsPanel({
   totalHospitals,
   totalAmbulances,
   availableAmbulances,
+  busyAmbulances,
+  enRouteAmbulances,
 }: StatsPanelProps) {
   const stats = [
     {
@@ -36,10 +40,24 @@ export default function StatsPanel({
       color: 'text-green-600',
       bg: 'bg-green-50',
     },
+    {
+      label: 'Busy',
+      value: busyAmbulances,
+      icon: RefreshCw,
+      color: 'text-yellow-600',
+      bg: 'bg-yellow-50',
+    },
+    {
+      label: 'En Route',
+      value: enRouteAmbulances,
+      icon: RefreshCw,
+      color: 'text-yellow-600',
+      bg: 'bg-yellow-50',
+    },
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
       {stats.map((stat, index) => {
         const Icon = stat.icon;
         return (
