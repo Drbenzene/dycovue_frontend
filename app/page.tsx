@@ -192,15 +192,8 @@ export default function Home() {
             </h1>
             <div className="flex items-center gap-3 mt-1">
               <p className="text-gray-600 text-sm sm:text-base">
-                Real-time proximity tracking powered by React Query and Spatial API
+                Real-time proximity tracking
               </p>
-              <button
-                onClick={simulateMovement}
-                className="px-3 py-1 bg-blue-50 text-blue-600 rounded-md text-xs font-medium hover:bg-blue-100 transition-colors"
-                disabled={batchMovement.isPending}
-              >
-                {batchMovement.isPending ? 'Moving...' : 'Simulate Movement'}
-              </button>
             </div>
           </div>
         </div>
