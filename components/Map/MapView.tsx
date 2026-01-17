@@ -33,7 +33,7 @@ export default function MapView({
 
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+      style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json', // 100% free, no API key required
       center: [3.3792, 6.5244],
       zoom: 6,
       pitch: 45,
@@ -128,10 +128,10 @@ export default function MapView({
       const isOnJourney = activeJourney?.ambulanceId === ambulance.id;
       const bearing = isOnJourney ? activeJourney.currentBearing : 0;
 
-      const statusColors = {
+      const statusColors: Record<Ambulance['status'], string> = {
         available: 'bg-green-600',
         busy: 'bg-amber-500',
-        en_route: 'bg-gray-400',
+        en_route: 'bg-blue-400',
         offline: 'bg-gray-400',
       };
 
